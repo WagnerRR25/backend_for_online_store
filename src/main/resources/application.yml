@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/credit_application_system_db
+    username: postgres
+    password: 12345
+  jpa:
+    show-sql: true
+    #hibernate:
+    properties:
+      hibernate.format_sql: true
