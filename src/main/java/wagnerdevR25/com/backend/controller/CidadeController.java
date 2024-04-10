@@ -1,39 +1,41 @@
 package wagnerdevR25.com.backend.controller;
 
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import wagnerdevR25.com.backend.entity.Cidade;
 import wagnerdevR25.com.backend.entity.Estado;
+import wagnerdevR25.com.backend.repository.CidadeRepository;
+import wagnerdevR25.com.backend.service.CidadeService;
 import wagnerdevR25.com.backend.service.EstadoService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/cidade")
+public class CidadeController {
 
     @Autowired
-    private EstadoService estadoService;
+    private CidadeService cidadeService;
 
     @GetMapping("/")
-    public List<Estado> buscarTodos() {
-        return estadoService.buscarTodos();
+    public List<Cidade> buscarTodos() {
+        return cidadeService.buscarTodos();
     }
 
     @PostMapping("/")
-    public Estado inserir(@RequestBody Estado estado) {
-        return estadoService.inserir(estado);
+    public Cidade inserir(@RequestBody Cidade objeto) {
+        return cidadeService.inserir(objeto);
     }
 
     @PutMapping("/")
-    public Estado alterar(@RequestBody Estado estado) {
-        return estadoService.alterar(estado);
+    public Cidade alterar(@RequestBody Cidade objeto) {
+        return cidadeService.alterar(objeto);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
-        estadoService.excluir(id);
+        cidadeService.excluir(id);
         return ResponseEntity.ok().build();
     }
 }
