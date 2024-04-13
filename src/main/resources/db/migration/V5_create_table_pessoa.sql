@@ -2,9 +2,9 @@
 CREATE TABLE pessoa (
   id BIGINT NOT NULL,
    nome VARCHAR(255),
-   cpf VARCHAR(12),
+   cpf VARCHAR(255),
    email VARCHAR(255),
-   senha VARCHAR(20),
+   senha VARCHAR(255),
    "endereço" VARCHAR(255),
    cep VARCHAR(255),
    id_cidade BIGINT,

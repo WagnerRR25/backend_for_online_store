@@ -1,12 +1,13 @@
 package wagnerdevR25.com.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "produto")
+@Table(name = "permissao")
 @Data
 public class Permissao {
 
@@ -14,13 +15,10 @@ public class Permissao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String descricaoCurta;
-    private String descricaoDetalhada;
-    private String valorCusto;
-    private String venda;
     @ManyToOne
-    @JoinColumn(name="idCategoria")
-    private Categoria categoria;
+    @JoinColumn(name = "idPessoa")
+    private Permissao permissao;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
