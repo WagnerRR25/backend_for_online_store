@@ -1,6 +1,5 @@
 package wagnerdevR25.com.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,9 +14,10 @@ public class Permissao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    private String nome;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idPessoa")
-    private Permissao permissao;
+    private Pessoa pessoa;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;

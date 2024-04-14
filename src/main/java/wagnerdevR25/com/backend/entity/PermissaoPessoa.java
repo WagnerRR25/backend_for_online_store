@@ -20,12 +20,10 @@ public class PermissaoPessoa {
     private Pessoa pessoa;
 
     @ManyToOne
-    @JoinColumn(name = "idPessoa")
+    @JoinColumn(name = "idPermissao")
     @JsonIgnore
     private Permissao permissao;
 
-    @JoinColumn(name="idPermissao")
-    private Produto produto;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)

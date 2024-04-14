@@ -3,7 +3,6 @@ package wagnerdevR25.com.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import wagnerdevR25.com.backend.entity.Pessoa;
 import wagnerdevR25.com.backend.entity.Produto;
 import wagnerdevR25.com.backend.service.ProdutoService;
 
@@ -32,7 +31,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
+    public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
         produtoService.excluir(id);
         return ResponseEntity.ok().build();
     }

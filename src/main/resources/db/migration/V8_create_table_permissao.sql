@@ -1,8 +1,10 @@
 
 CREATE TABLE permissao (
   id BIGINT NOT NULL,
-   permissao VARCHAR(255),
+   id_pessoa BIGINT,
    data_criacao TIMESTAMP WITHOUT TIME ZONE,
    data_atualizacao TIMESTAMP WITHOUT TIME ZONE,
    CONSTRAINT pk_permissao PRIMARY KEY (id)
 );
+
+ALTER TABLE permissao ADD CONSTRAINT FK_PERMISSAO_ON_IDPESSOA FOREIGN KEY (id_pessoa) REFERENCES pessoa (id);

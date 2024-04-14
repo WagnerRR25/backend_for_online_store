@@ -16,9 +16,15 @@ public class Produto {
 
     private String descricaoCurta;
     private String descricaoDetalhada;
-    private String valorCusto;
-    private String venda;
 
+    @Column(columnDefinition = "double precision USING valor_custo::double precision")
+    private Double valorCusto;
+    @Column(columnDefinition = "venda::double precision")
+    private Double venda;
+
+    @ManyToOne
+    @JoinColumn(name="idMarca")
+    private Marca marca;
     @ManyToOne
     @JoinColumn(name="idCategoria")
     private Categoria categoria;
