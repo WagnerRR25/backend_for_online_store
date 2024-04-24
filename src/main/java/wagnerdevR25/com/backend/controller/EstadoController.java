@@ -1,6 +1,5 @@
 package wagnerdevR25.com.backend.controller;
 
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/estado")
+@CrossOrigin("http://localhost:3000")
 public class EstadoController {
 
     @Autowired
@@ -22,8 +22,8 @@ public class EstadoController {
     }
 
     @PostMapping("/")
-    public Estado inserir(@RequestBody Estado estado) {
-        return estadoService.inserir(estado);
+    public Estado inserir(@RequestBody Estado objeto) {
+        return estadoService.inserir(objeto);
     }
 
     @PutMapping("/")

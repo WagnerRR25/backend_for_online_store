@@ -18,19 +18,19 @@ public class EstadoService {
         return estadoRepository.findAll();
     }
 
-    public Estado inserir(Estado estado) {
-        estado.setDataCriacao(new Date());
-        Estado estadoNovo = estadoRepository.saveAndFlush(estado);
-        return estadoNovo;
+    public Estado inserir(Estado objeto) {
+        objeto.setDataCriacao(new Date());
+        Estado objetoNovo = estadoRepository.saveAndFlush(objeto);
+        return objetoNovo;
     }
 
-    public Estado alterar(Estado estado) {
-        estado.setDataAtualizacao(new Date());
-        return estadoRepository.saveAndFlush(estado);
+    public Estado alterar(Estado objeto) {
+        objeto.setDataAtualizacao(new Date());
+        return estadoRepository.saveAndFlush(objeto);
     }
 
     public void excluir(Long id) {
-        Estado estado = estadoRepository.findById(id).get();
-        estadoRepository.delete(estado);
+        Estado objeto = estadoRepository.findById(id).get();
+        estadoRepository.delete(objeto);
     }
 }
